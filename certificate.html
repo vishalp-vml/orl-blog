@@ -1,0 +1,45 @@
+<!doctype html>
+
+<head>
+    <meta name="description" content="">
+    <style>
+        *{margin: 0; padding: 0;}
+        .certificate-box{
+            position: relative;
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .certificate-box img{width: 100%;}
+    </style>
+</head>
+
+<body>
+    <div class="certificate-box">
+        <div class="certi-data">
+            <p>Name: <span id="name"></span></p>
+            <p>State: <span id="state"></span></p>
+            <p>District: <span id="district"></span></p>
+            <p>Gaon: <span id="gaon"></span></p>
+        </div>
+        <img src="images/certificate.png" alt="">
+    </div>
+    
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            const name = urlParams.get('appre_name');
+            const state = urlParams.get('appre_state');
+            const district = urlParams.get('appre_district');
+            const gaon = urlParams.get('appre_gaon');
+
+            $('#name').text(name);
+            $('#state').text(state);
+            $('#district').text(district);
+            $('#gaon').text(gaon);
+        });
+    </script>
+</body>
+</html>
